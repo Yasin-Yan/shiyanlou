@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+    id="WebApp_ID" version="3.0">
+    <display-name>SpringMVCTest</display-name>
+
+    <!-- 配置 Spring MVC DispatchcerServlet 前端控制器 -->
+    <servlet>
+        <servlet-name>springmvc</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <init-param>
+            <!-- contextConfigLocation 是参数名称，该参数的值包含 Spring MVC 的配置文件路径 -->
+            <param-name>contextConfigLocation</param-name>
+            <param-value>/WEB-INF/springmvc-config.xml</param-value>
+        </init-param>
+        <!-- 在 Web 应用启动时立即加载 Servlet -->
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <!-- Servlet 映射声明 -->
+    <servlet-mapping>
+        <servlet-name>springmvc</servlet-name>
+        <!-- 监听当前域的所有请求 -->
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+    <!-- 添加 register.jsp 为首页 -->
+    <welcome-file-list>
+        <welcome-file>register.jsp</welcome-file>
+    </welcome-file-list>
+</web-app>
